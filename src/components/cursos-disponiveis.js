@@ -9,19 +9,20 @@ import {
   View,
   Linking,
   TouchableHighlight,
+  Platform,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+//import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const CursosDisponiveis = ({navigation, route}) => {
   const backgroundStyle = {
-    backgroundColor: Colors.lighter,
-    height: '100%',
+    backgroundColor: '#ffffff',
+    height: Platform.OS === 'web' ? '96vh' : '100%',
   };
 
   const containerStyle = {
     padding: 12,
-    backgroundColor: Colors.lighter,
+    backgroundColor: '#ffffff',
   };
 
   const contentContainerStyle = {
@@ -51,19 +52,29 @@ const CursosDisponiveis = ({navigation, route}) => {
       fontWeight: '700',
     },
     button: {
-      borderRadius: 8,
-      backgroundColor: '#cf4f66',
-      height: 45,
-      width: '100%',
+      borderRadius: 18,
+      backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+      height: 55,
+      width: Platform.OS === 'web' ? '85vw' : '100%',
       flexDirection: 'row',
       justifyContent: 'center',
       alignItems: 'center',
       padding: 5,
     },
+    backButton: {
+      borderRadius: 50,
+      backgroundColor: '#6797ff',
+      marginTop: 50,
+      height: 55,
+      width: Platform.OS === 'web' ? '85vw' : '100%',
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
     buttonText: {
-      color: Colors.lighter,
+      color: '#ffffff',
       textAlign: 'center',
-      fontSize: 15,
+      fontSize: 18,
     },
     buttonSpacing: {
       marginVertical: 10,
@@ -95,6 +106,18 @@ const CursosDisponiveis = ({navigation, route}) => {
               </View>
             );
           })}
+          {Platform.OS === 'web' ? (
+            <View style={styles.buttonSpacing}>
+              <TouchableHighlight
+                underlayColor="#cf4f668c"
+                style={styles.backButton}
+                onPress={() => navigation.goBack()}>
+                <Text style={styles.buttonText}>Voltar</Text>
+              </TouchableHighlight>
+            </View>
+          ) : (
+            false
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>

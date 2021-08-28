@@ -6,6 +6,8 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "web:start": "react-scripts start",
+    "web:build": "react-scripts build",
     "test": "jest",
     "lint": "eslint ."
   },
@@ -13,9 +15,12 @@
     "@react-navigation/native": "^6.0.2",
     "@react-navigation/native-stack": "^6.1.0",
     "react": "17.0.2",
+    "react-dom": "^17.0.2",
     "react-native": "0.65.1",
     "react-native-safe-area-context": "^3.3.0",
-    "react-native-screens": "^3.6.0"
+    "react-native-screens": "^3.6.0",
+    "react-native-web": "^0.17.1",
+    "react-scripts": "^4.0.3"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -30,5 +35,17 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }

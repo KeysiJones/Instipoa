@@ -2,7 +2,7 @@ import React from 'react';
 import {useState, useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {DiasSemana} from './android/components/dias-semana';
+import {DiasSemana} from './components/dias-semana';
 import {
   SafeAreaView,
   ScrollView,
@@ -14,10 +14,11 @@ import {
   Linking,
   TouchableHighlight,
   ActivityIndicator,
+  Platform,
 } from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
-import {CursosDisponiveis} from './android/components/cursos-disponiveis';
+//import {Colors} from '../node_modules/react-native/Libraries/NewAppScreen';
+import {CursosDisponiveis} from './components/cursos-disponiveis';
 
 const App = () => {
   const Stack = createNativeStackNavigator();
@@ -27,7 +28,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#cf4f66',
+      backgroundColor: '#ff6b86',
     },
   };
 
@@ -37,7 +38,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#cf4f66',
+      backgroundColor: '#ff6b86',
     },
   };
 
@@ -47,7 +48,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#cf4f66',
+      backgroundColor: '#ff6b86',
     },
   };
 
@@ -92,19 +93,19 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   button: {
-    borderRadius: 8,
-    backgroundColor: '#cf4f66',
-    height: 45,
-    width: '100%',
+    borderRadius: 18,
+    backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+    height: 50,
+    width: Platform.OS === 'web' ? '85vw' : '100%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 5,
   },
   buttonText: {
-    color: Colors.lighter,
+    color: '#ffffff',
     textAlign: 'center',
-    fontSize: 15,
+    fontSize: 18,
   },
 });
 
@@ -112,13 +113,13 @@ const HomeScreen = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    height: '100%',
+    backgroundColor: isDarkMode ? '#ffffff' : '#ffffff',
+    height: Platform.OS === 'web' ? '96vh' : '100%',
   };
 
   const containerStyle = {
     padding: 12,
-    backgroundColor: Colors.lighter,
+    backgroundColor: '#ffffff',
   };
 
   const contentContainerStyle = {
@@ -150,7 +151,7 @@ const HomeScreen = ({navigation}) => {
 
   return (
     <SafeAreaView style={containerStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+      <StatusBar barStyle={isDarkMode ? 'dark-content' : 'light-content'} />
       <ScrollView
         contentContainerStyle={contentContainerStyle}
         contentInsetAdjustmentBehavior="automatic"
