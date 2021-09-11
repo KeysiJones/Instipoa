@@ -15,7 +15,10 @@ import {
   TouchableHighlight,
   ActivityIndicator,
   Platform,
+  Image,
 } from 'react-native';
+
+import salvador from './images/salvador.jpg';
 
 //import {Colors} from '../node_modules/react-native/Libraries/NewAppScreen';
 import {CursosDisponiveis} from './components/cursos-disponiveis';
@@ -92,6 +95,16 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
+  bar: {
+    borderRadius: 18,
+    backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+    height: 50,
+    width: Platform.OS === 'web' ? '110%' : '100%',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 5,
+  },
   button: {
     borderRadius: 18,
     backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
@@ -114,7 +127,7 @@ const HomeScreen = ({navigation}) => {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? '#ffffff' : '#ffffff',
-    height: Platform.OS === 'web' ? '96vh' : '100%',
+    height: Platform.OS === 'web' ? '85vh' : '100%',
   };
 
   const containerStyle = {
@@ -127,8 +140,9 @@ const HomeScreen = ({navigation}) => {
     display: 'flex',
     alignSelf: 'center',
     justifyContent: 'center',
+    backgroundColor: 'black',
     flex: 1,
-    width: '120%',
+    width: '100%',
   };
 
   const [aulas, setAulas] = useState([]);
@@ -149,14 +163,53 @@ const HomeScreen = ({navigation}) => {
     fetchCourses();
   }, []);
 
+  const styles2 = StyleSheet.create({
+    container: {
+      paddingTop: 50,
+    },
+    tinyLogo: {
+      width: 50,
+      height: 50,
+    },
+    logo: {
+      borderRadius: 10,
+      width: Platform.OS === 'web' ? '30vw' : '50%',
+      height: Platform.OS === 'web' ? '30vh' : '50%',
+    },
+  });
+
   return (
     <SafeAreaView style={containerStyle}>
-      <StatusBar barStyle={isDarkMode ? 'dark-content' : 'light-content'} />
+      <StatusBar
+        animated={true}
+        backgroundColor="#cf4f66"
+        barStyle={isDarkMode ? 'dark-content' : 'light-content'}
+      />
       <ScrollView
         contentContainerStyle={contentContainerStyle}
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View>
+        <View style={{backgroundColor: 'white', width: '100%'}}>
+          <View style={{marginVertical: 10}}>
+            <TouchableHighlight
+              underlayColor="#cf4f668c"
+              style={styles.bar}
+              onPress={() =>
+                Linking.openURL(
+                  'https://docs.google.com/forms/d/e/1FAIpQLSd0y43FbhjFRI62qL42DezLBjtwC6nhubskd_JVlxH3js4hbw/viewform',
+                )
+              }>
+              <Text style={styles.buttonText}>Matricula</Text>
+            </TouchableHighlight>
+          </View>
+          <View
+            style={{
+              alignContent: 'center',
+              alignItems: 'center',
+              marginBottom: Platform.OS === 'web' ? 40 : -100,
+            }}>
+            <Image style={styles2.logo} source={salvador} />
+          </View>
           {aulas._id ? (
             <>
               <View style={{marginVertical: 10}}>
