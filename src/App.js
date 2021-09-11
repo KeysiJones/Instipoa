@@ -96,14 +96,21 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   bar: {
-    borderRadius: 18,
+    borderRadius: 0,
+    marginTop: -10,
     backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
     height: 50,
-    width: Platform.OS === 'web' ? '110%' : '100%',
+    width: Platform.OS === 'web' ? '100%' : '100%',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 5,
+  },
+  barButtonText: {
+    color: '#ffffff',
+    textAlign: 'center',
+    fontSize: 20,
+    fontWeight: '700',
   },
   button: {
     borderRadius: 18,
@@ -131,8 +138,8 @@ const HomeScreen = ({navigation}) => {
   };
 
   const containerStyle = {
-    padding: 12,
-    backgroundColor: '#ffffff',
+    padding: 0,
+    backgroundColor: 'white',
   };
 
   const contentContainerStyle = {
@@ -140,7 +147,7 @@ const HomeScreen = ({navigation}) => {
     display: 'flex',
     alignSelf: 'center',
     justifyContent: 'center',
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     flex: 1,
     width: '100%',
   };
@@ -185,28 +192,29 @@ const HomeScreen = ({navigation}) => {
         backgroundColor="#cf4f66"
         barStyle={isDarkMode ? 'dark-content' : 'light-content'}
       />
+      {Platform.OS === 'web' ? (
+        <View style={{marginVertical: 10}}>
+          <TouchableHighlight underlayColor="#cf4f668c" style={styles.bar}>
+            <Text style={styles.barButtonText}>Instituto Porto Alegre</Text>
+          </TouchableHighlight>
+        </View>
+      ) : (
+        false
+      )}
       <ScrollView
         contentContainerStyle={contentContainerStyle}
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <View style={{backgroundColor: 'white', width: '100%'}}>
-          <View style={{marginVertical: 10}}>
-            <TouchableHighlight
-              underlayColor="#cf4f668c"
-              style={styles.bar}
-              onPress={() =>
-                Linking.openURL(
-                  'https://docs.google.com/forms/d/e/1FAIpQLSd0y43FbhjFRI62qL42DezLBjtwC6nhubskd_JVlxH3js4hbw/viewform',
-                )
-              }>
-              <Text style={styles.buttonText}>Matricula</Text>
-            </TouchableHighlight>
-          </View>
+        <View
+          style={{
+            backgroundColor: 'white',
+            alignItems: Platform.OS === 'web' ? 'center' : null,
+          }}>
           <View
             style={{
               alignContent: 'center',
               alignItems: 'center',
-              marginBottom: Platform.OS === 'web' ? 40 : -100,
+              marginBottom: Platform.OS === 'web' ? 20 : -100,
             }}>
             <Image style={styles2.logo} source={salvador} />
           </View>
