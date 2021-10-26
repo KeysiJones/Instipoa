@@ -53,7 +53,7 @@ const CursosDisponiveis = ({navigation, route}) => {
     },
     button: {
       borderRadius: 10,
-      backgroundColor: Platform.OS === 'web' ? 'dodgerblue' : '#ff6b86',
+      backgroundColor: 'dodgerblue',
       height: 55,
       width: Platform.OS === 'web' ? '85vw' : '100%',
       flexDirection: 'row',
@@ -72,7 +72,7 @@ const CursosDisponiveis = ({navigation, route}) => {
       alignItems: 'center',
     },
     buttonText: {
-      color: '#ffffff',
+      color: 'white',
       textAlign: 'center',
       fontSize: 18,
     },

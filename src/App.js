@@ -39,7 +39,7 @@ const App = () => {
   const DiasSemanaScreenOptions = {
     title: 'Escolha o dia',
     headerTitleAlign: 'center',
-    headerTintColor: 'ffffff',
+    headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
       backgroundColor: 'dodgerblue',
@@ -49,7 +49,7 @@ const App = () => {
   const CursosDisponiveisScreenOptions = {
     title: 'Escolha o curso',
     headerTitleAlign: 'center',
-    headerTintColor: 'ffffff',
+    headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
       backgroundColor: 'dodgerblue',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   buttonText: {
-    color: Platform.OS === 'web' ? 'white' : '#ff6b86',
+    color: 'white',
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
@@ -189,8 +189,8 @@ const HomeScreen = ({navigation}) => {
       borderRadius: 10,
       marginTop: -50,
       marginBottom: 10,
-      width: Platform.OS === 'web' ? width : '50%',
-      height: Platform.OS === 'web' ? height : '50%',
+      width: Platform.OS === 'web' ? width : 350,
+      height: Platform.OS === 'web' ? height : 200,
     },
   });
 
@@ -198,7 +198,7 @@ const HomeScreen = ({navigation}) => {
     <SafeAreaView style={containerStyle}>
       <StatusBar
         animated={true}
-        backgroundColor="#cf4f66"
+        backgroundColor="#1e90ffcf"
         barStyle={isDarkMode ? 'dark-content' : 'light-content'}
       />
       {Platform.OS === 'web' ? (
@@ -270,18 +270,22 @@ const HomeScreen = ({navigation}) => {
               </Text>
             </>
           )}
-          <View>
-            <Text
-              style={{
-                fontSize: 15,
-                textAlign: 'center',
-                fontStyle: 'italic',
-                fontWeight: '500',
-                padding: '5px',
-              }}>
-              *Desenvolvido por <b>Keysi Jones R. Fernandes</b>
-            </Text>
-          </View>
+          {Platform.OS === 'web' ? (
+            <View>
+              <Text
+                style={{
+                  fontSize: 15,
+                  textAlign: 'center',
+                  fontStyle: 'italic',
+                  fontWeight: '500',
+                  padding: '5px',
+                }}>
+                *Desenvolvido por <b>Keysi Jones R. Fernandes</b>
+              </Text>
+            </View>
+          ) : (
+            false
+          )}
         </View>
       </ScrollView>
     </SafeAreaView>
