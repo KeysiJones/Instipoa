@@ -52,8 +52,8 @@ const DiasSemana = ({navigation, route}) => {
       fontWeight: '700',
     },
     button: {
-      borderRadius: 18,
-      backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+      borderRadius: 10,
+      backgroundColor: Platform.OS === 'web' ? 'dodgerblue' : '#ff6b86',
       height: 50,
       width: Platform.OS === 'web' ? '85vw' : '100%',
       flexDirection: 'row',
@@ -92,7 +92,7 @@ const DiasSemana = ({navigation, route}) => {
         <View>
           <View style={styles.buttonSpacing}>
             <TouchableHighlight
-              underlayColor="#cf4f668c"
+              underlayColor="#1e90ffa3"
               style={styles.button}
               onPress={() =>
                 navigation.navigate('CursosDisponiveis', {cursos: aulas.terca})
@@ -102,7 +102,7 @@ const DiasSemana = ({navigation, route}) => {
           </View>
           <View style={styles.buttonSpacing}>
             <TouchableHighlight
-              underlayColor="#cf4f668c"
+              underlayColor="#1e90ffa3"
               style={styles.button}
               onPress={() =>
                 navigation.navigate('CursosDisponiveis', {cursos: aulas.quarta})
@@ -112,7 +112,7 @@ const DiasSemana = ({navigation, route}) => {
           </View>
           <View style={styles.buttonSpacing}>
             <TouchableHighlight
-              underlayColor="#cf4f668c"
+              underlayColor="#1e90ffa3"
               style={styles.button}
               onPress={() =>
                 navigation.navigate('CursosDisponiveis', {cursos: aulas.quinta})
@@ -122,7 +122,7 @@ const DiasSemana = ({navigation, route}) => {
           </View>
           <View style={styles.buttonSpacing}>
             <TouchableHighlight
-              underlayColor="#cf4f668c"
+              underlayColor="#1e90ffa3"
               style={styles.button}
               onPress={() =>
                 navigation.navigate('CursosDisponiveis', {cursos: aulas.sabado})
@@ -133,7 +133,7 @@ const DiasSemana = ({navigation, route}) => {
           {Platform.OS === 'web' ? (
             <View style={styles.buttonSpacing}>
               <TouchableHighlight
-                underlayColor="#cf4f668c"
+                underlayColor="#1e90ffa3"
                 style={styles.backButton}
                 onPress={() => navigation.goBack()}>
                 <Text style={styles.buttonText}>Voltar à página inicial</Text>

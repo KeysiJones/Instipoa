@@ -52,8 +52,8 @@ const CursosDisponiveis = ({navigation, route}) => {
       fontWeight: '700',
     },
     button: {
-      borderRadius: 18,
-      backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+      borderRadius: 10,
+      backgroundColor: Platform.OS === 'web' ? 'dodgerblue' : '#ff6b86',
       height: 55,
       width: Platform.OS === 'web' ? '85vw' : '100%',
       flexDirection: 'row',
@@ -95,7 +95,7 @@ const CursosDisponiveis = ({navigation, route}) => {
             return (
               <View style={styles.buttonSpacing} key={curso.id}>
                 <TouchableHighlight
-                  underlayColor="#cf4f668c"
+                  underlayColor="#1e90ffa3"
                   style={styles.button}
                   onPress={() => Linking.openURL(curso.link)}>
                   <Text
@@ -109,7 +109,7 @@ const CursosDisponiveis = ({navigation, route}) => {
           {Platform.OS === 'web' ? (
             <View style={styles.buttonSpacing}>
               <TouchableHighlight
-                underlayColor="#cf4f668c"
+                underlayColor="#1e90ffa3"
                 style={styles.backButton}
                 onPress={() => navigation.goBack()}>
                 <Text style={styles.buttonText}>Voltar</Text>

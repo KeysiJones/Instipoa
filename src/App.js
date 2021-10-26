@@ -16,6 +16,7 @@ import {
   ActivityIndicator,
   Platform,
   Image,
+  Dimensions,
 } from 'react-native';
 
 import salvador from './images/salvador.jpg';
@@ -28,30 +29,30 @@ const App = () => {
   const DefaultScreenOptions = {
     title: 'Instituto Porto Alegre',
     headerTitleAlign: 'center',
-    headerTintColor: '#ffffff',
+    headerTintColor: 'ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#ff6b86',
+      backgroundColor: 'dodgerblue',
     },
   };
 
   const DiasSemanaScreenOptions = {
     title: 'Escolha o dia',
     headerTitleAlign: 'center',
-    headerTintColor: '#ffffff',
+    headerTintColor: 'ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#ff6b86',
+      backgroundColor: 'dodgerblue',
     },
   };
 
   const CursosDisponiveisScreenOptions = {
     title: 'Escolha o curso',
     headerTitleAlign: 'center',
-    headerTintColor: '#ffffff',
+    headerTintColor: 'ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#ff6b86',
+      backgroundColor: 'dodgerblue',
     },
   };
 
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
   bar: {
     borderRadius: 0,
     marginTop: -10,
-    backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+    backgroundColor: 'dodgerblue',
     height: 50,
     width: Platform.OS === 'web' ? '100%' : '100%',
     flexDirection: 'row',
@@ -107,14 +108,14 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   barButtonText: {
-    color: '#ffffff',
+    color: 'white',
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '700',
   },
   button: {
-    borderRadius: 18,
-    backgroundColor: Platform.OS === 'web' ? '#ff0066' : '#ff6b86',
+    borderRadius: 10,
+    backgroundColor: 'dodgerblue',
     height: 50,
     width: Platform.OS === 'web' ? '85vw' : '100%',
     flexDirection: 'row',
@@ -123,9 +124,10 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   buttonText: {
-    color: '#ffffff',
+    color: Platform.OS === 'web' ? 'white' : 'ff6b86',
     textAlign: 'center',
     fontSize: 18,
+    fontWeight: '700',
   },
 });
 
@@ -133,7 +135,7 @@ const HomeScreen = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? '#ffffff' : '#ffffff',
+    backgroundColor: 'white',
     height: Platform.OS === 'web' ? '85vh' : '100%',
   };
 
@@ -170,6 +172,11 @@ const HomeScreen = ({navigation}) => {
     fetchCourses();
   }, []);
 
+  const windowWidth = Dimensions.get('window').width;
+
+  const width = '85vw';
+  const height = windowWidth >= 463 ? '50vh' : '30vh';
+
   const styles2 = StyleSheet.create({
     container: {
       paddingTop: 50,
@@ -180,8 +187,10 @@ const HomeScreen = ({navigation}) => {
     },
     logo: {
       borderRadius: 10,
-      width: Platform.OS === 'web' ? '30vw' : '50%',
-      height: Platform.OS === 'web' ? '30vh' : '50%',
+      marginTop: -50,
+      marginBottom: 10,
+      width: Platform.OS === 'web' ? width : '50%',
+      height: Platform.OS === 'web' ? height : '50%',
     },
   });
 
@@ -194,7 +203,7 @@ const HomeScreen = ({navigation}) => {
       />
       {Platform.OS === 'web' ? (
         <View style={{marginVertical: 10}}>
-          <TouchableHighlight underlayColor="#cf4f668c" style={styles.bar}>
+          <TouchableHighlight underlayColor="#1e90ffa3" style={styles.bar}>
             <Text style={styles.barButtonText}>Instituto Porto Alegre</Text>
           </TouchableHighlight>
         </View>
@@ -215,14 +224,14 @@ const HomeScreen = ({navigation}) => {
               alignContent: 'center',
               alignItems: 'center',
               marginBottom: Platform.OS === 'web' ? 20 : -100,
-            }}>
-            <Image style={styles2.logo} source={salvador} />
-          </View>
+            }}
+          />
           {aulas._id ? (
             <>
+              <Image style={styles2.logo} source={salvador} />
               <View style={{marginVertical: 10}}>
                 <TouchableHighlight
-                  underlayColor="#cf4f668c"
+                  underlayColor="#1e90ffa3"
                   style={styles.button}
                   onPress={() => navigation.navigate('DiasSemana', {aulas})}>
                   <Text style={styles.buttonText}>Aulas</Text>
@@ -230,7 +239,7 @@ const HomeScreen = ({navigation}) => {
               </View>
               <View style={{marginVertical: 10}}>
                 <TouchableHighlight
-                  underlayColor="#cf4f668c"
+                  underlayColor="#1e90ffa3"
                   style={styles.button}
                   onPress={() =>
                     Linking.openURL(
@@ -242,7 +251,7 @@ const HomeScreen = ({navigation}) => {
               </View>
               <View style={{marginVertical: 10}}>
                 <TouchableHighlight
-                  underlayColor="#cf4f668c"
+                  underlayColor="#1e90ffa3"
                   style={styles.button}
                   onPress={() =>
                     Linking.openURL('https://githobby.vercel.app/')
@@ -262,8 +271,15 @@ const HomeScreen = ({navigation}) => {
             </>
           )}
           <View>
-            <Text style={{fontSize: 15, textAlign: 'center'}}>
-              *App Desenvolvido por Keysi Jones
+            <Text
+              style={{
+                fontSize: 15,
+                textAlign: 'center',
+                fontStyle: 'italic',
+                fontWeight: 500,
+                padding: '5px',
+              }}>
+              *Desenvolvido por <b>Keysi Jones R. Fernandes</b>
             </Text>
           </View>
         </View>
