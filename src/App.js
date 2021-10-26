@@ -29,7 +29,7 @@ const App = () => {
   const DefaultScreenOptions = {
     title: 'Instituto Porto Alegre',
     headerTitleAlign: 'center',
-    headerTintColor: 'ffffff',
+    headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
       backgroundColor: 'dodgerblue',
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   buttonText: {
-    color: Platform.OS === 'web' ? 'white' : 'ff6b86',
+    color: Platform.OS === 'web' ? 'white' : '#ff6b86',
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
@@ -254,7 +254,7 @@ const HomeScreen = ({navigation}) => {
                   underlayColor="#1e90ffa3"
                   style={styles.button}
                   onPress={() =>
-                    Linking.openURL('https://githobby.vercel.app/')
+                    Linking.openURL('https://keysijones.vercel.app/')
                   }>
                   <Text style={styles.buttonText}>
                     Contato do desenvolvedor *
@@ -276,7 +276,7 @@ const HomeScreen = ({navigation}) => {
                 fontSize: 15,
                 textAlign: 'center',
                 fontStyle: 'italic',
-                fontWeight: 500,
+                fontWeight: '500',
                 padding: '5px',
               }}>
               *Desenvolvido por <b>Keysi Jones R. Fernandes</b>
