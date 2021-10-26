@@ -157,7 +157,6 @@ const HomeScreen = ({navigation}) => {
   const [aulas, setAulas] = useState([]);
 
   const fetchCourses = () => {
-    console.log('bora pegar dados da api');
     fetch(
       'https://backend-instituto.herokuapp.com/aulas/6128177affc6504f682dbb81',
     )
@@ -190,7 +189,7 @@ const HomeScreen = ({navigation}) => {
       marginTop: -50,
       marginBottom: 10,
       width: Platform.OS === 'web' ? width : 350,
-      height: Platform.OS === 'web' ? height : 200,
+      height: Platform.OS === 'web' ? height : 175,
     },
   });
 
@@ -261,6 +260,19 @@ const HomeScreen = ({navigation}) => {
                   </Text>
                 </TouchableHighlight>
               </View>
+              <Text
+                style={{
+                  fontSize: 15,
+                  textAlign: 'center',
+                  fontStyle: 'italic',
+                  fontWeight: '500',
+                  padding: 5,
+                }}>
+                *Desenvolvido por{' '}
+                <Text style={{fontWeight: '700', fontStyle: 'italic'}}>
+                  Keysi Jones R. Fernandes
+                </Text>
+              </Text>
             </>
           ) : (
             <>
@@ -269,22 +281,6 @@ const HomeScreen = ({navigation}) => {
                 Carregando cursos disponíveis...
               </Text>
             </>
-          )}
-          {Platform.OS === 'web' ? (
-            <View>
-              <Text
-                style={{
-                  fontSize: 15,
-                  textAlign: 'center',
-                  fontStyle: 'italic',
-                  fontWeight: '500',
-                  padding: '5px',
-                }}>
-                *Desenvolvido por <b>Keysi Jones R. Fernandes</b>
-              </Text>
-            </View>
-          ) : (
-            false
           )}
         </View>
       </ScrollView>
