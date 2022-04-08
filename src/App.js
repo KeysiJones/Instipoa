@@ -32,7 +32,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: 'dodgerblue',
+      backgroundColor: '#00ffac',
     },
   };
 
@@ -42,7 +42,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: 'dodgerblue',
+      backgroundColor: '#00ffac',
     },
   };
 
@@ -52,7 +52,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: 'dodgerblue',
+      backgroundColor: '#00ffac',
     },
   };
 
@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
   bar: {
     borderRadius: 0,
     marginTop: -10,
-    backgroundColor: 'dodgerblue',
+    backgroundColor: '#00ffac',
     height: 50,
     width: Platform.OS === 'web' ? '100%' : '100%',
     flexDirection: 'row',
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: 10,
-    backgroundColor: 'dodgerblue',
+    backgroundColor: '#00ffac',
     height: 50,
     width: Platform.OS === 'web' ? '85vw' : '100%',
     flexDirection: 'row',
@@ -197,12 +197,12 @@ const HomeScreen = ({navigation}) => {
     <SafeAreaView style={containerStyle}>
       <StatusBar
         animated={true}
-        backgroundColor="#1e90ffcf"
+        backgroundColor="#00ffac"
         barStyle={isDarkMode ? 'dark-content' : 'light-content'}
       />
       {Platform.OS === 'web' ? (
         <View style={{marginVertical: 10}}>
-          <TouchableHighlight underlayColor="#1e90ffa3" style={styles.bar}>
+          <TouchableHighlight underlayColor="#00ffac" style={styles.bar}>
             <Text style={styles.barButtonText}>Instituto Porto Alegre</Text>
           </TouchableHighlight>
         </View>
@@ -225,12 +225,14 @@ const HomeScreen = ({navigation}) => {
               marginBottom: Platform.OS === 'web' ? 20 : -100,
             }}
           />
+          {aulas._id && windowWidth < 1000 ? (
+            <Image style={styles2.logo} source={salvador} />
+          ) : null}
           {aulas._id ? (
             <>
-              <Image style={styles2.logo} source={salvador} />
               <View style={{marginVertical: 10}}>
                 <TouchableHighlight
-                  underlayColor="#1e90ffa3"
+                  underlayColor="#00ffac"
                   style={styles.button}
                   onPress={() => navigation.navigate('DiasSemana', {aulas})}>
                   <Text style={styles.buttonText}>Aulas</Text>
@@ -238,7 +240,7 @@ const HomeScreen = ({navigation}) => {
               </View>
               <View style={{marginVertical: 10}}>
                 <TouchableHighlight
-                  underlayColor="#1e90ffa3"
+                  underlayColor="#00ffac"
                   style={styles.button}
                   onPress={() =>
                     Linking.openURL(
@@ -250,14 +252,12 @@ const HomeScreen = ({navigation}) => {
               </View>
               <View style={{marginVertical: 10}}>
                 <TouchableHighlight
-                  underlayColor="#1e90ffa3"
+                  underlayColor="#00ffac"
                   style={styles.button}
                   onPress={() =>
                     Linking.openURL('https://keysijones.vercel.app/')
                   }>
-                  <Text style={styles.buttonText}>
-                    Contato do desenvolvedor *
-                  </Text>
+                  <Text style={styles.buttonText}>Sobre o desenvolvedor</Text>
                 </TouchableHighlight>
               </View>
               <Text
@@ -270,7 +270,7 @@ const HomeScreen = ({navigation}) => {
                 }}>
                 *Desenvolvido por{' '}
                 <Text style={{fontWeight: '700', fontStyle: 'italic'}}>
-                  Keysi Jones R. Fernandes
+                  Keysi Jones
                 </Text>
               </Text>
             </>
