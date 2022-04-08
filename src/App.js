@@ -172,7 +172,6 @@ const HomeScreen = ({navigation}) => {
   }, []);
 
   const windowWidth = Dimensions.get('window').width;
-  console.log({windowWidth});
 
   const width = '85vw';
   const height = windowWidth >= 463 ? '50vh' : '30vh';
