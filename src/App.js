@@ -24,7 +24,7 @@ import salvador from './images/salvador.jpg';
 //import {Colors} from '../node_modules/react-native/Libraries/NewAppScreen';
 import {CursosDisponiveis} from './components/cursos-disponiveis';
 
-const themeColor = '#00ffac';
+const themeColor = '#1ad597';
 const App = () => {
   const Stack = createNativeStackNavigator();
   const DefaultScreenOptions = {
