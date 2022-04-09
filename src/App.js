@@ -24,6 +24,7 @@ import salvador from './images/salvador.jpg';
 //import {Colors} from '../node_modules/react-native/Libraries/NewAppScreen';
 import {CursosDisponiveis} from './components/cursos-disponiveis';
 
+const themeColor = '#00ffac';
 const App = () => {
   const Stack = createNativeStackNavigator();
   const DefaultScreenOptions = {
@@ -32,7 +33,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#00ffac',
+      backgroundColor: themeColor,
     },
   };
 
@@ -42,7 +43,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#00ffac',
+      backgroundColor: themeColor,
     },
   };
 
@@ -52,7 +53,7 @@ const App = () => {
     headerTintColor: '#ffffff',
     animation: 'slide_from_right',
     headerStyle: {
-      backgroundColor: '#00ffac',
+      backgroundColor: themeColor,
     },
   };
 
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   bar: {
     borderRadius: 0,
     marginTop: -10,
-    backgroundColor: '#00ffac',
+    backgroundColor: themeColor,
     height: 50,
     width: Platform.OS === 'web' ? '100%' : '100%',
     flexDirection: 'row',
@@ -108,14 +109,14 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   barButtonText: {
-    color: 'white',
+    color: '#f3f4f6',
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '700',
   },
   button: {
     borderRadius: 10,
-    backgroundColor: '#00ffac',
+    backgroundColor: themeColor,
     height: 50,
     width: Platform.OS === 'web' ? '85vw' : '100%',
     flexDirection: 'row',
@@ -124,7 +125,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   buttonText: {
-    color: 'white',
+    color: '#f3f4f6',
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
@@ -135,13 +136,13 @@ const HomeScreen = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: 'white',
+    backgroundColor: '#f3f4f6',
     height: Platform.OS === 'web' ? '85vh' : '100%',
   };
 
   const containerStyle = {
     padding: 0,
-    backgroundColor: 'white',
+    backgroundColor: '#f3f4f6',
   };
 
   const contentContainerStyle = {
@@ -149,7 +150,7 @@ const HomeScreen = ({navigation}) => {
     display: 'flex',
     alignSelf: 'center',
     justifyContent: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#f3f4f6',
     flex: 1,
     width: '100%',
   };
@@ -215,7 +216,7 @@ const HomeScreen = ({navigation}) => {
         style={backgroundStyle}>
         <View
           style={{
-            backgroundColor: 'white',
+            backgroundColor: '#f3f4f6',
             alignItems: Platform.OS === 'web' ? 'center' : null,
           }}>
           <View
@@ -276,9 +277,10 @@ const HomeScreen = ({navigation}) => {
             </>
           ) : (
             <>
-              <ActivityIndicator size={60} color="#cf4f66" />
+              <ActivityIndicator size={60} color={themeColor} />
               <Text style={{fontSize: 20, marginBottom: 100, marginTop: 70}}>
-                Carregando cursos disponíveis...
+                Estamos carregando os cursos disponíveis...
+                <p>Por favor aguarde...</p>
               </Text>
             </>
           )}
