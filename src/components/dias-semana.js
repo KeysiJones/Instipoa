@@ -14,6 +14,7 @@ import {
 //import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 const DiasSemana = ({navigation, route}) => {
+  const themeColor = '#1ad597';
   const backgroundStyle = {
     backgroundColor: '#ffffff',
     height: Platform.OS === 'web' ? '96vh' : '100%',
@@ -53,7 +54,7 @@ const DiasSemana = ({navigation, route}) => {
     },
     button: {
       borderRadius: 10,
-      backgroundColor: '#00ffac',
+      backgroundColor: themeColor,
       height: 50,
       width: Platform.OS === 'web' ? '85vw' : '100%',
       flexDirection: 'row',
@@ -62,7 +63,7 @@ const DiasSemana = ({navigation, route}) => {
     },
     backButton: {
       borderRadius: 50,
-      backgroundColor: '#00ffac',
+      backgroundColor: themeColor,
       marginTop: 50,
       height: 50,
       width: Platform.OS === 'web' ? '85vw' : '100%',
