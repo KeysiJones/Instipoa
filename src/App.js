@@ -276,13 +276,7 @@ const HomeScreen = ({navigation}) => {
               </Text>
             </>
           ) : (
-            <>
-              <ActivityIndicator size={60} color={themeColor} />
-              <Text style={{fontSize: 20, marginBottom: 100, marginTop: 70}}>
-                Estamos carregando os cursos disponíveis...
-                <p>Por favor aguarde...</p>
-              </Text>
-            </>
+            <ActivityIndicator size={60} color={themeColor} />
           )}
         </View>
       </ScrollView>
