@@ -24,6 +24,7 @@ const DiasSemana = ({navigation, route}) => {
   const containerStyle = {
     padding: 12,
     backgroundColor: greyColor,
+    height: '100vh',
   };
 
   const contentContainerStyle = {
