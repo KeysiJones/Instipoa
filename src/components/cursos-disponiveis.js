@@ -16,14 +16,15 @@ import {
 
 const CursosDisponiveis = ({navigation, route}) => {
   const themeColor = '#1ad597';
+  const greyColor = '#f3f4f6';
   const backgroundStyle = {
-    backgroundColor: '#ffffff',
+    backgroundColor: greyColor,
     height: Platform.OS === 'web' ? '96vh' : '100%',
   };
 
   const containerStyle = {
     padding: 12,
-    backgroundColor: '#ffffff',
+    backgroundColor: greyColor,
   };
 
   const contentContainerStyle = {
