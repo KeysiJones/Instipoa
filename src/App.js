@@ -143,6 +143,7 @@ const HomeScreen = ({navigation}) => {
   const containerStyle = {
     padding: 0,
     backgroundColor: '#f3f4f6',
+    height: '100vh',
   };
 
   const contentContainerStyle = {
